@@ -15,14 +15,20 @@ function App() {
       setTodos ([...todos,{id:4,name:todoName}])
       setId(id+1);
     }
+     function onDelete(id){
+      setTodos( todos => todos.filter(todo =>todo.id !==id))
+     }
 
   return (
     <div>
      
       <ul>
         {
-          todos.map( todo => <li key={todo.id}>{todo.name}</li>)
+          todos.map( todo => <li key={todo.id}>{todo.name}
+           <button onClick={()=>onDelete(todo.id)}> </button>
+          </li>)
         }
+       
       </ul>
       <form onSubmit={addTodo}>
         <input placeholder='to do name ' value={todoName} onChange={e => setTodoName(e.target.value)} />
