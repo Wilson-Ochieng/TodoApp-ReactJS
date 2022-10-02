@@ -2,6 +2,7 @@ import React ,{useState} from 'react';
 import './App.css';
 
 function App() {
+  const[id,setId]= useState(4)
   const[todos,setTodos]=useState(
     [
       {id: 1,name:"Wake up"},
@@ -12,6 +13,7 @@ function App() {
     function addTodo(e){
       e.preventDefault()
       setTodos ([...todos,{id:4,name:todoName}])
+      setId(id+1);
     }
 
   return (
