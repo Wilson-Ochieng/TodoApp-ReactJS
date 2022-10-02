@@ -5,11 +5,13 @@ function App() {
   const[todos,setTodos]=useState(
     [
       {id: 1,name:"Wake up"},
-      {id :2,name:"prepare braekfast"},
+      {id :2,name:"prepare breakfast"},
       {id :3,name:"Go to church"},
     ] );
-    function addTodo(){
-      setTodos ([...todos,[{id:4,name:"New-Item"}]])
+    const[todoName,setTodoName]=useState("")
+    function addTodo(e){
+      e.preventDafault()
+      setTodos ([...todos,{id:4,name:"New-Item"}])
     }
 
   return (
@@ -20,7 +22,10 @@ function App() {
           todos.map( todo => <li key={todo.id}>{todo.name}</li>)
         }
       </ul>
+      <form onSubmit={addTodo}>
+        <input placeholder='to do name ' value={todoName} onChange={e => setTodoName(e.target.value)} />
       <button onClick={addTodo}>addTodo</button>
+      </form>
       
        </div>
   )
