@@ -10,8 +10,8 @@ function App() {
     ] );
     const[todoName,setTodoName]=useState("")
     function addTodo(e){
-      e.preventDafault()
-      setTodos ([...todos,{id:4,name:"New-Item"}])
+      e.preventDefault()
+      setTodos ([...todos,{id:4,name:todoName}])
     }
 
   return (
